@@ -1,11 +1,9 @@
-
-<%@page import="com.entity.Employee"%>
-<%@page import="java.util.List"%>
-<%@page import="org.hibernate.Query"%>
-<%@page import="com.provider.FactoryProvider"%>
-<%@page import="org.hibernate.Session"%>
-
 <!doctype html>
+<%@page import="com.entity.Employee"%>
+<%@page import="org.hibernate.Transaction"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="com.provider.FactoryProvider"%>
+<%@page import="org.hibernate.SessionFactory"%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -20,17 +18,18 @@
    	<%@ include file="navigation.jsp" %>
    	</div>
    	
-   <% 
-   Session ses = FactoryProvider.getFactory().openSession();
-   Query qry =  ses.createQuery("from Employee");
-   List<Employee> ls= qry.list();
+   	<%
+   		try
+   	{
+   			Employee emp = (Employee)application.getAttribute("emp");
+   			if(emp!=null)
+   			{
+   				
+   			
+   	%>
    
-   for(Employee emp :ls)
-   {
-   
-   %>
-    
-    <div class="container">
+   	
+   	<div class="container">
     <div class="card mt-3">
     <img class="card-img-top m-4" style="max-width:70px;" src="css/eicon.png" class="card-img-top" alt="...">
 	
@@ -49,12 +48,42 @@
 	
     </div>
     </div>
-    <% 
-   }
-    %>
+   	
+   			}
+   			else
+   			{
+   				
+   				
+   				
+   	%>
+   	
+   	<div class="container">
+   	<div class="card mt-3">
+   	<img class="card-img-top m-4" style="max-width:70px;" src="css/eicon.png" class="card-img-top" alt="...">
+	
+	
+	<div class="card-body">
+	
+	<h5 class="card-text"><b>Sorry ! Invalid ID</b></h5>
+	</div>
+   	
+   	</div>
+   	
+   	</div>
+   	
+   	<% 
+   			}
+   	}
+   	catch(Exception e)
+   	{
+   		
+   	}
+   	
+   	
+   	%>
+   
+   	
   
-    
-    
     </body>
     
     </html>

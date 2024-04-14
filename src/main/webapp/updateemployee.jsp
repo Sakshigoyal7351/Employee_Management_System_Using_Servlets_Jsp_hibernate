@@ -21,12 +21,11 @@
    	</div>
    	
    <% 
+  
+   int eid = Integer.parseInt(request.getParameter("eid"));
    Session ses = FactoryProvider.getFactory().openSession();
-   Query qry =  ses.createQuery("from Employee");
-   List<Employee> ls= qry.list();
    
-   for(Employee emp :ls)
-   {
+   Employee emp = ses.get(Employee.class, eid);
    
    %>
     
@@ -36,22 +35,22 @@
 	
 	<div class="cord-body">
 	
+	<form action="updateServlet">
+	
 	<h5 class="card-text"><b>Emp ID : <%= emp.getEid() %></b></h5>
 	<h5 class="card-text"><b>Name : <%= emp.getName() %></b></h5>
 	<h5 class="card-text"><b>Gender : <%= emp.getGender() %></b></h5>
 	<h5 class="card-text"><b>Address : <%= emp.getAddress() %></b></h5>
 	<h5 class="card-text"><b>Email : <%= emp.getEmail() %></b></h5>
 	
-	<a href="DeleteServlet?eid=<%=emp.getEid()%>" class="btn btn-danger">Delete</a>
-	<a href="UpdateServlet?eid=<%=emp.getEid()%>" class="btn btn-primary">Update</a>
+	<input type="submit" value="Save update" class="btn btn-primary">
+	</form>
 	</div>
 	
 	
     </div>
     </div>
-    <% 
-   }
-    %>
+    
   
     
     
