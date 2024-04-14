@@ -20,6 +20,8 @@
    	<%@ include file="navigation.jsp" %>
    	</div>
    	
+   	
+   	
    <% 
   
    int eid = Integer.parseInt(request.getParameter("eid"));
@@ -35,13 +37,13 @@
 	
 	<div class="cord-body">
 	
-	<form action="updateServlet">
+	<form action="UpdateServlet">
 	
 	<h5 class="card-text"><b>Emp ID : <%= emp.getEid() %></b></h5>
-	<h5 class="card-text"><b>Name : <%= emp.getName() %></b></h5>
-	<h5 class="card-text"><b>Gender : <%= emp.getGender() %></b></h5>
-	<h5 class="card-text"><b>Address : <%= emp.getAddress() %></b></h5>
-	<h5 class="card-text"><b>Email : <%= emp.getEmail() %></b></h5>
+	<p class="card-text"><b>Name : <%= emp.getName() %></b></p>
+	<p class="card-text"><b>Gender : <%= emp.getGender() %></b></p>
+	<p class="card-text"><b>Address : <%= emp.getAddress() %></b></p>
+	<p class="card-text"><b>Email : <%= emp.getEmail() %></b></p>
 	
 	<input type="submit" value="Save update" class="btn btn-primary">
 	</form>

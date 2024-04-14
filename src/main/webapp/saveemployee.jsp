@@ -1,9 +1,11 @@
-<!doctype html>
+
 <%@page import="com.entity.Employee"%>
 <%@page import="org.hibernate.Transaction"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="com.provider.FactoryProvider"%>
 <%@page import="org.hibernate.SessionFactory"%>
+<!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
